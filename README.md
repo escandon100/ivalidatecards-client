@@ -1,1 +1,0 @@
-# ivalidatecards-client

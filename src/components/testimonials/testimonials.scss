@@ -1,0 +1,240 @@
+@use "../../styles/responsiveness.scss";
+
+.testimonials{
+    color: white;
+    height: 100%;
+    background-color: #10153d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 150px;
+
+    @include responsiveness.small{
+        height: 100%;
+    }
+
+    @include responsiveness.medium{
+        gap: 50px;
+    }
+
+    @include responsiveness.large{
+        gap: 100px;
+
+    }
+
+ 
+
+    .top{
+        display: flex;
+        justify-content: space-around;
+        width: 80%;
+        padding-top: 100px;
+
+        @include responsiveness.small{
+            width: 100%;
+            gap: 20px   ;
+
+        }
+
+        .clients{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-items: center;
+           text-align: center;
+
+            @include responsiveness.small{
+                font-size: 16px;
+            }
+
+            span{
+                 @include responsiveness.small{
+                    font-size: 12px;
+                 }
+            }
+
+            h1{
+                @include responsiveness.small{
+                    font-size: 16px;
+                }
+            }
+
+         
+        }
+        .transactions{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-items: center;
+            text-align: center;
+
+            span{
+                @include responsiveness.small{
+                   font-size: 12px;
+                }
+           }
+
+            h1{
+                @include responsiveness.small{
+                    font-size: 16px;
+                }
+            }
+
+        }
+        .users{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-items: center;
+            text-align: center;
+
+            span{
+                @include responsiveness.small{
+                   font-size: 12px;
+                }
+           }
+
+
+
+            h1{
+                @include responsiveness.small{
+                    font-size: 16px;
+                }
+            }
+
+        }
+        .reviews{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-items: center;
+            text-align: center;
+       
+            span{
+                @include responsiveness.small{
+                   font-size: 12px;
+                }
+           }
+
+            h1{
+                @include responsiveness.small{
+                    font-size: 16px;
+                }
+            }
+
+        }
+
+    }
+
+    .bottom{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 85%;
+        padding-bottom: 50px;
+
+        @include responsiveness.small{
+            width: 100%;
+            gap: 10px;
+            align-items: center;
+            padding: 20px;
+        }
+     
+        @include responsiveness.large{
+            padding-bottom: 100px;
+        }
+
+        .header{
+
+            @include responsiveness.small{
+                text-align: center;
+            }
+
+            h1{
+                @include responsiveness.small{
+                    font-size: 18px;
+                }
+
+            }
+          
+        }
+
+    
+
+        .reviews{
+            display: flex;
+            gap: 20px;
+            
+            @include responsiveness.small{
+                width: 80%;
+                flex-direction: column;
+            }
+
+    
+            .review{
+                background-color: white;
+                color: black;
+                border-radius: 10px;
+           
+                .reviewText{
+                    padding: 50px;
+                    line-height: 1.6;
+                    font-style: italic;
+                    color: #9e9b9b;
+                    position: relative;
+
+                    @include responsiveness.small{
+                        padding: 20px;
+                    }
+
+                    @include responsiveness.medium{
+                        padding: 20px;
+                        
+                    } 
+                    @include responsiveness.large{
+                        padding: 30px;
+                    }                   
+
+                }
+                .user{
+                    display: flex;
+                    gap: 10px;
+                    padding: 20px  40px;
+
+                
+
+
+                    .userName{
+                        display: flex;
+                        flex-direction: column;
+
+                        h3{
+                            color: #73bfe1;
+
+                         
+                        }
+                        span{
+                            color: #9fdaa6;
+                        }
+                    }
+
+
+                    .userImg{
+
+                        img{
+                            height: 50px;
+                            width: 50px;
+                            border-radius: 100%;
+                        }
+                    }
+
+                    
+                }
+            }
+        }
+
+
+    
+
+    }
+}

@@ -1,0 +1,282 @@
+@use "../../styles/responsiveness.scss";
+
+
+.home{
+  
+    height: 100%;
+    display: flex;
+    gap: 50px;
+    background-color: #10153d;
+    color: white;
+    width: 100%;
+    padding-bottom: 50px;
+
+    @include responsiveness.small{
+        flex-direction: column;
+    }
+
+
+    .left{
+        flex: 1;
+        padding-top: 20px;
+        padding-left: 50px;
+
+        @include responsiveness.small{
+            flex: none;
+            padding-left: 20px;
+        }
+
+        @include responsiveness.medium{
+            padding-top: 10px;
+            padding-left: 20px;
+        }
+
+        @include responsiveness.large{
+            padding-left: 30px;
+            padding-top: 80px;
+        }
+
+        .intro{
+            width: 100%;
+            line-height: 1.6;
+
+            @include responsiveness.small{
+                width: 100%;
+                padding-right: 15px;
+                font-size: 12px;
+            }
+
+
+            h1{
+                @include responsiveness.medium{
+                    font-size: 26px;
+                    padding-right: 30px;
+                }
+            }
+
+
+            .introDetails{
+                width: 70%;
+                padding-top: 20px;
+
+                @include responsiveness.small{
+                    width: 93%;
+                    font-size: 12px;
+                }
+
+                @include responsiveness.medium{
+                    width: 80%;
+                    font-size: 13px;
+                }
+                @include responsiveness.large{
+                    width: 90%;
+                }
+            }
+        }
+        .introButtons{
+            width: 60%;
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+
+            @include responsiveness.small{
+                width: 100%;
+                justify-content:flex-start;
+                gap: 20px;
+            }
+
+            @include responsiveness.medium{
+                width: 100%;
+                padding-right: 40px;
+            }
+
+            @include responsiveness.large{
+                width: 100%;
+                padding-right: 20px;
+                margin-top: 30px;
+                padding-right: 40px;
+            }
+
+
+
+            button{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40%;
+                padding: 25px 10px;
+                gap: 10px;
+                border: none;
+                border-radius: 5px;
+                font-size: 16px;
+                background-color: #5746e0;
+                color: white;
+
+                @include responsiveness.small{
+                    font-size: 14px;
+                    width: 40%;
+                    gap: 5px;
+
+                }
+
+                @include responsiveness.medium{
+                    width: 45%;
+                    gap: 10px;
+                }
+
+                @include responsiveness.large{
+                    width: 40%;
+                }
+
+                img{
+                    width: 20px;
+
+                    @include responsiveness.small{
+                        width: 15px;
+                    }
+                    
+                }
+            }
+        }
+        .introNumbers{
+            display: flex;
+            gap: 50px;
+            margin-top: 50px;
+            width: 100%;
+
+            @include responsiveness.small{
+                margin-top: 50px;
+                gap: 10px;
+            }
+
+
+         
+
+            .validations{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 30%;
+                padding: 25px;
+                gap: 20px;
+                border: 1px solid #232c69;
+
+                p{
+                    text-align: center;
+                    line-height: 1.6;
+                }
+
+                @include responsiveness.small{
+                    width: 40%;
+                }
+
+                @include responsiveness.medium{
+                    width: 50%;
+                }
+
+                @include responsiveness.large{
+                    width: 50%;
+                }
+
+
+
+                h1{
+
+                    @include responsiveness.small{
+                        font-size: 24px;
+                    }
+                }
+                
+                p{
+                    
+                    @include responsiveness.small{
+                        font-size: 14px;
+                        text-align: center;
+                        line-height: 1.6;
+
+                    }
+                }
+
+                  
+                }
+
+            
+            .purchases{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 30%;
+                padding: 25px;
+                gap: 20px;
+                border: 1px solid #232c69;
+
+                p{
+                    text-align: center;
+                    line-height: 1.6;
+
+                }
+
+
+
+                @include responsiveness.small{
+                    width: 40%;
+                }
+
+                @include responsiveness.medium{
+                    width: 50%;
+                }
+
+                @include responsiveness.large{
+                    width: 50%;
+                }
+   
+                h1{
+                    @include responsiveness.small{
+                        font-size: 24px;
+                    }
+                }
+
+                P{
+                    @include responsiveness.small{
+                        font-size: 14px;
+                        text-align: center;
+                        line-height: 1.6;
+
+                    }
+                    
+                }
+                
+            }
+        }
+    }
+
+    .right{
+        flex: 1;
+        padding-top: 20px;
+
+        @include responsiveness.small{
+            display: none;
+        }
+
+        @include responsiveness.medium{
+            flex: 0.7;
+        }
+
+        @include responsiveness.large{
+            padding-top: 30px;
+        }
+
+
+        img{
+            height: 80%;
+            width: 100%;
+
+            @include responsiveness.medium{
+                height: 60%;
+            }
+        }
+
+        
+    }
+
+}

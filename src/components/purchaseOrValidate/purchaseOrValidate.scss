@@ -1,0 +1,305 @@
+@use "../../styles/responsiveness.scss";
+
+
+.purchaseCard{
+    height: 350px;
+    display: flex;
+    width: 100%;
+    border : 1px solid red;
+    .purchaseCardImg{
+        flex: 1;
+        border : 1px solid green;
+        height: 100px;
+    }
+    .purchaseCardContent{
+        flex: 2;
+    }
+    
+}
+
+.popupOverlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+
+
+    .popupContent{
+        background-color: white;
+        display: flex;
+
+        @include responsiveness.small{
+            justify-content: center;
+            width: 90%;
+        }
+
+     
+
+    
+
+
+        .popupCard{
+            display: flex;
+            gap: 25px;
+            padding: 20px 25px;
+
+            @include responsiveness.small{
+                gap: 10px ;
+                justify-content: center;
+                width: 100%;
+            }
+
+         
+
+            .popupCardImg{
+
+                @include responsiveness.small{
+                    display: none;
+                }
+
+                img{
+                    border-radius: 10px;    
+                }
+
+            }
+
+            .popupCardContent{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                padding: 10px 20px;
+
+                @include responsiveness.small{
+                    padding: 0px;
+                    width: 100%;
+                }
+
+         
+
+                .heading{
+                    font-size: 18px;
+
+                    h1{
+                        text-align: left;
+                        @include responsiveness.small{
+                            font-size: 16px;
+                            text-align: left;
+                        }
+
+                    }
+
+                    .error-message{
+                        color: red;
+                        text-align: left;
+                    }
+               
+
+                }
+                .deliveryInfo{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    .deliveryItems{
+                        display: flex;
+                        gap: 10px;
+                        font-size: 12px;
+
+                        img{
+                            height: 15px;
+                            width: 15px;
+                        }
+
+                    }
+
+                }
+                .input{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+
+                 
+
+                    .amount{
+                        padding: 10px;
+                        border-radius: 5px;
+                       
+
+
+                        &.pin{
+                            margin-right: 10px;
+                            @include responsiveness.small{
+                                width: 100%;
+                                margin-bottom: 20px;
+                            }
+                            @include responsiveness.medium{
+                                width: 100%;
+                                margin-bottom: 20px;
+                            }
+                            @include responsiveness.large{
+                                width: 40%;
+                                margin-bottom: 20px;
+                                margin-right: 10px;
+
+                            }
+                        }
+
+                        &.cvv{
+                            margin-right: 10px;
+                            @include responsiveness.small{
+                                width: 100%;
+                            }
+                            @include responsiveness.medium{
+                                width: 100%;
+                                margin-bottom: 20px;
+                            }
+                            @include responsiveness.large{
+                                width: 40%;
+                                margin-bottom: 20px;
+                                margin-right: 10px;
+
+                            }
+
+                        }
+                        &.expiryDate{
+                            margin-right: 10px;
+                            @include responsiveness.small{
+                                width: 100%;
+                                margin-bottom: 20px;
+
+                            }
+                            @include responsiveness.medium{
+                                width: 100%;
+                                margin-bottom: 20px;
+                            }
+                            @include responsiveness.large{
+                                width: 40%;
+                                margin-bottom: 20px;
+                                margin-right: 10px;
+                            }
+                        }
+                   
+
+                    }
+                    .number{
+                        padding: 10px;
+                        border-radius: 5px;
+
+                    }
+
+                    button{
+                        background-color: #10153d;
+                        color: white;
+                        display: flex;
+                        justify-content: center;
+                        padding: 10px;
+                    }
+
+                }
+
+
+
+            }
+
+
+        }
+
+
+        button{
+
+            cursor: pointer;
+            background-color: white;
+            border: none;
+            display: flex;
+
+
+            img{
+                height: 10px;
+                width: 10px;
+
+            }
+        }
+
+    }
+}
+
+
+.purchaseOrValidate{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+
+
+    .purchasewrapper{
+        width: 80%;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        @include responsiveness.small{
+            width: 100%;
+        }
+        @include responsiveness.medium{
+            width: 100%;
+        }
+      
+
+        .purchase{
+            width: 50%;
+            padding: 10px 15px;
+            background-color:#10153d ;
+            color: white;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            cursor: pointer;
+
+            @include responsiveness.medium{
+                padding-left : 2px;
+            }
+
+            @include responsiveness.large{
+                padding-left: 8px;
+            }
+        }
+        .or{
+            position: absolute;
+            background-color: white;
+            left: 50%;
+            transform: translate(-50%);
+            color: grey;
+            display: flex;
+            align-items: center;
+            box-shadow: 0px 0px 5px 2px black;
+            border-radius: 100%;
+            padding: 5px 10px;
+            z-index: 1;
+            height: 70%;
+    
+        }
+    
+        .validate{
+            width: 50%;
+            padding: 8px 25px;
+            color: black;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            background-color: white;
+            box-shadow: 0px 0px 5px 2px black;
+            cursor: pointer;
+    
+        }
+
+    }
+
+
+    
+
+    
+    
+}

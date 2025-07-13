@@ -1,0 +1,106 @@
+@use "../../styles/responsiveness.scss";
+
+.faq{
+    height: 100%;
+    display: flex;
+    width: 100%;
+    padding-top: 150px;
+    padding-bottom: 150px;
+
+    @include responsiveness.small{
+        height: 100%;
+        flex-direction: column;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    @include responsiveness.medium{
+        height: 100%;
+        padding-top: 150px;
+        padding-bottom: 150px;
+        gap: 20px;
+    }
+    
+    @include responsiveness.large{
+        height: 100%;
+        padding-top: 150px;
+        padding-bottom: 150px;
+    }
+
+
+    
+
+    .contact{
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include responsiveness.medium{
+            flex: 0.5;
+        }
+
+
+        .wrapper{
+            display: flex;
+            flex-direction: column;
+            gap : 20px;
+
+            @include responsiveness.small{
+                padding-top: 20px;
+            }
+            @include responsiveness.medium{
+                text-align: center;
+                padding: 20px;
+            }
+     
+            h1{
+                @include responsiveness.small{
+                    font-size: 18px;
+                }
+                @include responsiveness.medium{
+                    font-size: 18px;
+                }
+            }
+        }
+
+        button{
+            padding: 25px 35px;
+            background-color: #10153d;
+            color: white;
+            font-size: 18px;
+            display: flex;
+            gap: 10px;
+            width: 50%;
+
+            @include responsiveness.small{
+                justify-content: center;
+                padding: 10px;
+                width: 100%;
+            }
+
+            @include responsiveness.medium{
+                width: 100%;
+                border: none;
+            }
+
+            img{
+                height: 18px;
+            }
+
+        }
+    }
+
+    .accordion{
+        flex: 1;
+        display: flex;
+        align-items: center;
+
+        @include responsiveness.small{
+            width: 100%;
+            padding: 20px;
+        }
+
+     
+    }
+}

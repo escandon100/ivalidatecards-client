@@ -1,0 +1,43 @@
+@use "../../styles/responsiveness.scss";
+
+.card{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 10px;
+    align-items: center;
+    width : 18%;
+
+    @include responsiveness.small{
+        width: 70%;
+        text-align: center;
+
+    }
+
+    @include responsiveness.medium{
+        width: 25%;
+        text-align: center;
+
+    }
+
+    @include responsiveness.large{
+        width: 25%;
+    }
+
+    h3{
+
+        @include responsiveness.small{
+            font-size: 24px;
+        }
+    }
+
+    img{
+
+        @include responsiveness.small{
+            width: 100%;
+
+        }
+    }
+
+   
+}

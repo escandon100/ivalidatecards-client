@@ -1,0 +1,76 @@
+@use "../../styles//responsiveness.scss";
+
+.buy{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding-bottom: 50px;
+    
+
+
+    @include responsiveness.small{
+        height: 100%;
+        padding-top: 20px;
+    }
+    @include responsiveness.medium{
+        height: 100%;
+    }
+    @include responsiveness.large{
+        height: 100%;
+    }
+
+    .heading{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        @include responsiveness.small{
+            width: 100%;
+            text-align: center;
+        }
+
+        @include responsiveness.medium{
+            text-align: center;
+        }
+
+        h1{
+            @include responsiveness.small{
+                font-size: 28px;
+            }
+        }
+
+        p{
+            @include responsiveness.small{
+                font-size: 14px;
+
+            }
+        }
+
+    }
+
+
+    .wrapper{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        gap: 10px;
+        flex-wrap: wrap;
+
+
+        @include responsiveness.small{
+            gap: 15px;
+        }
+        @include responsiveness.medium{
+            gap: 20px;
+        }
+
+        img{
+            height: 100px;
+            width: 150px;
+        }
+    }
+}

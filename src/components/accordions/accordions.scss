@@ -1,0 +1,39 @@
+@use "../../styles/responsiveness.scss";
+
+.accordions{
+    padding-right: 20px;
+    
+    @include responsiveness.small{
+        padding-right: 0px;
+    }
+
+    .accordionSummary{
+        height: 15vh;
+
+
+        &.changeBackground{
+            background-color: #232c69;
+            color: white;
+
+        }
+        & .typographySummary{
+            font-weight: 500;
+            font-size: 18px;
+
+            @include responsiveness.small{
+                font-size: 16px;
+            }
+        }
+       
+    }
+
+    .typographyDetails{
+        line-height: 1.8;
+
+        @include responsiveness.small{
+            font-size: 14px;
+        }
+    }
+    
+
+}
