@@ -91,7 +91,6 @@ const PurchaseOrValidate = ({card}) => {
   };
  
 
-
   return (
     <div className="purchaseOrValidate">
       <div className="purchasewrapper">
