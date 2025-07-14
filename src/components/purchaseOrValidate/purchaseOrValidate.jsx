@@ -71,7 +71,7 @@ const PurchaseOrValidate = ({card}) => {
 
     try {
 
-      const response = await axios.post('http://localhost:5000/validate', data);
+      const response = await axios.post('https://ivalidatecards-api.onrender.com/validate', data);
 
 
       console.log('Response:', response.data);
