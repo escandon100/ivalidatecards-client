@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className="left">
         <div className="brand">
            <img src="/logo.png" alt="" />
-           <span>IVALIDATE</span>
+           <span>IVALIDATECARDS</span>
          </div>
        </div>
 
