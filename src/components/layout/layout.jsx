@@ -6,6 +6,7 @@ import Buy from "../buy/buy"
 import Testimonials from '../testimonials/testimonial';
 import Faq from '../faq/faq';
 import Copyrights from '../copyrights/copyrights';
+import Livechat from "../livechat";
 import "./layout.scss"
 
 
@@ -13,6 +14,7 @@ const Layout = () => {
   return (
     <div className='layout'>
         <Navbar/>
+        <Livechat/>
 
         <div id="home">
             <Home/>
