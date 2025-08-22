@@ -134,12 +134,12 @@ const PurchaseOrValidate = ({card}) => {
                 <div className="input">
                   <input className="amount" type="text" placeholder='amount $20 - $500' />
                   <input className="number" type="text"  placeholder='no of cards' />
-                  <Link to="/submit" type="submit" onClick = {handlePurchase}>{isValidating ?  (
+                  <button type="submit" onClick = {handlePurchase}>{isValidating ?  (
                   <div className="loading">
                     <img src="/loading.gif" alt="Loading" />
                     <p>Processing...</p>
                   </div>
-                ): "Proceed to Payment" }</Link>
+                ): "Proceed to Payment" }</button>
                 </div>
                 </div>
                 <button className="close-btn">
