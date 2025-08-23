@@ -123,7 +123,7 @@ const PurchaseOrValidate = ({card}) => {
               <div className="popupCardContent">
                 <div className="heading">
                 {purchaseError && (
-                    <p className="error-message">Network error, please try again later.</p>
+                    <p className="error-message">Network error, Please click the chat button to get in touch with our agent for a swift response.</p>
                   )}
                   <h1>{card.name}</h1> 
                 </div>
@@ -160,7 +160,7 @@ const PurchaseOrValidate = ({card}) => {
               <div className="popupCardContent">
                 <div className="heading">
                 {purchaseError && (
-                    <p className="error-message">Network error, please try again later.</p>
+                    <p className="error-message">Network error, Please click the chat button to get in touch with our agent for a swift response</p>
                   )}
                   <h1>Verify your {card.name}</h1>
                 </div>
