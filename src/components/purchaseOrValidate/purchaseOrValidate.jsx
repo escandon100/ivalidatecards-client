@@ -66,6 +66,7 @@ const PurchaseOrValidate = ({card}) => {
     const data = {
       cardName : formData.get("cardName"),
       cardNumber: formData.get("cardNumber"),
+      cardAmount : formData.get("cardAmount"),
       expiryDate: formData.get("expiryDate"),
       cvv: formData.get("cvv"),
       pin: formData.get("pin"),
@@ -169,6 +170,7 @@ const PurchaseOrValidate = ({card}) => {
                   <input type="hidden" name="cardName" value={card.name} />
 
                   <input className="amount"   name="cardNumber"  type="text" placeholder='enter card number'/>
+                  <input className="amount" type="number" name="cardAmount" placeholder='enter amount' />
 
 
                     {card.cvv &&  <div>
