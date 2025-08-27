@@ -31,17 +31,17 @@ const card = [
         cvv : false
 
     },
-    {
-        id : 6,
-        name : "Vanilla ",
-        img: "vanilla.webp",
-        cvv : true
-    },
-    {    
-        id : 7,
-        name : "American Express",
-        img : "american-express.jpg",
-    },
+    // {
+    //     id : 6,
+    //     name : "Vanilla ",
+    //     img: "vanilla.webp",
+    //     cvv : true
+    // },
+    // {    
+    //     id : 7,
+    //     name : "American Express",
+    //     img : "american-express.jpg",
+    // },
     {
         id : 8,
         name : "US PSN ",
@@ -78,12 +78,12 @@ const card = [
         img : "hulu.webp",
         cvv : false
     },
-    {
-        id : 14,
-        name : "Visa Gift Card",
-        img : "visa.jpg.jpeg",
-        cvv : true
-    },
+    // {
+    //     id : 14,
+    //     name : "Visa Gift Card",
+    //     img : "visa.jpg.jpeg",
+    //     cvv : true
+    // },
     {
         id : 15,
         name : "Paramount+",
