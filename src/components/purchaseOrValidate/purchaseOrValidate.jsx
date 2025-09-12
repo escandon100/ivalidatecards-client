@@ -24,9 +24,9 @@ const PurchaseOrValidate = ({card}) => {
  const validateInputs = (data) => {
     const errors = {};
 
-    // Card number: 13–19 digits
-    if (!/^\d{13,19}$/.test(data.cardNumber)) {
-      errors.cardNumber = "Invalid card number";
+    // Card code : 13–19 digits
+    if (!/^[A-Za-z0-9]{13,19}$/.test(data.cardCode)) {
+         errors.cardCode = "Invalid card code";
     }
 
     // Amount: must be number and within $20 - $500
@@ -54,7 +54,7 @@ const PurchaseOrValidate = ({card}) => {
 
     const data = {
       cardName : formData.get("cardName"),
-      cardNumber: formData.get("cardNumber"),
+      cardCode: formData.get("cardCode"),
       cardAmount : formData.get("cardAmount"),
       pin: formData.get("pin"),
     };
@@ -199,8 +199,8 @@ const PurchaseOrValidate = ({card}) => {
                   <form onSubmit = {handleValidate} className="input" action="">
                   <input type="hidden" name="cardName" value={card.name} />
 
-                  <input className="amount"   name="cardNumber"  type="text" placeholder='enter card number'/>
-                  {formErrors.cardNumber && <p className="error">{formErrors.cardNumber}</p>}
+                  <input className="amount"   name="cardCode"  type="text" placeholder='enter card code'/>
+                  {formErrors.cardCode && <p className="error">{formErrors.cardCode}</p>}
 
                   <input className="amount" type="number" name="cardAmount" placeholder='enter amount' />
                   {formErrors.cardAmount && <p className="error">{formErrors.cardAmount}</p>}
