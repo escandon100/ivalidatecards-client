@@ -48,6 +48,7 @@
             display: flex;
             gap: 25px;
             padding: 20px 25px;
+            border-radius: 10px;
 
             @include responsiveness.small{
                 gap: 10px ;
@@ -80,6 +81,38 @@
                     width: 100%;
                 }
 
+                &.processing{
+                    align-items : center;
+               
+                    h2{
+                        font-size: 18px;
+
+                        @include responsiveness.small{
+                            font-size: 16px;
+                        }
+                    }
+
+                    p{
+                        font-size: 14px;
+                        color: #5a5a5a ;
+
+                        &.note{
+                            @include responsiveness.small{
+                                font-size: 12px;
+                            }
+                        }
+   
+                    }
+                }
+
+                .error{
+                    color: red;
+                    font-size: 14px;
+
+                    @include responsiveness.small{
+                        font-size: 10px;
+                    }
+                }
          
 
                 .heading{
@@ -94,11 +127,7 @@
 
                     }
 
-                    .error-message{
-                        color: red;
-                        text-align: left;
-                    }
-               
+    
 
                 }
                 .deliveryInfo{
@@ -302,7 +331,6 @@
     }
 
 
-    
 
     
     

