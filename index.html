@@ -11,9 +11,9 @@
     </script>
 
 
-    <script>
+    <!-- <script>
      gtag('event', 'conversion', { 'send_to': 'AW-17585365963/woHFCKLy3Z8bEMvHrcFB', 'transaction_id': '' }); 
-     </script>
+     </script> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -27,6 +27,16 @@
     <script type="module" src="/src/main.jsx"></script>
 
  
+   <script>
+    window.addEventListener('load', function() {
+    if (window.location.href === 'https://www.ivalidatecards.com/#submit') {
+       gtag('event', 'conversion', {
+      'send_to': 'AW-17585365963/woHFCKLy3Z8bEMvHrcFB'
+     });
+    }
+  });
+
+</script>
   </body>
 </html>
 
