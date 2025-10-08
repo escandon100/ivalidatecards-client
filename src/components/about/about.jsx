@@ -10,8 +10,9 @@ const About = () => {
         <div className="wrapper">
           <div className="leftText">
             <h1>About us</h1>
-            <p>We offer a wide selection of gift cards from popular brands across various categories, 
+            <p>We offer a wide selection of gift cards from popular brands across various categories,
               including fashion, dining, entertainment and more.</p>
+              <p>Some of our services for apple itunes cards includes : Apple itunes gift card balance , Apple itunes gift card validation , Purchase of digital apple itunes cards, Verification of apple itunes card codes etc </p>
             <button><img src="/right-arrow2.png" alt="" /><Link to="#buy">Validate Giftcards</Link></button>
           </div>
         </div>

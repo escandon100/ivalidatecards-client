@@ -31,7 +31,7 @@ const Testimonials = () => {
             <div className="reviews">
                 <div className="review">
                     <div className="reviewText">
-                        <p> Quick and easy , best for gift cards to your friends.
+                        <p> Quick and easy , best for purchasing digital gift cards and sending to your friends.
                             No hassle or worries, card is delivered to your email and 
                             you forward it to your friends.A great platform to gift someone
                             close to you.
@@ -53,9 +53,9 @@ const Testimonials = () => {
                 </div>
                 <div className="review">
                     <div className="reviewText">
-                        <p>I stumbled on your site looking for fast delivery of gift cards.
-                             The site was quick and easy to use, and I would recommend it. 
-                             This is a great option for buying digital giftcards
+                        <p>I stumbled on your site looking for how to validate my apple itunes gift card.
+                             The site was quick and easy to use, and I would recommend it.
+                             This is also a great option for buying digital giftcards and checking gift card balance
                              if you are not living in USA.</p>
                     </div>
                     <div className="user">
@@ -72,9 +72,10 @@ const Testimonials = () => {
                 </div>
                 <div className="review">
                     <div className="reviewText">
-                        <p>I hardly have problems when I purchase gift cards,
+                        <p>I hardly have problems when I try to validate my apple itunes gift cards,
                          if I do have issues they resolve them very quickly! Good professional friendly service,
-                         especially the fact that it is easy and fast. </p>
+                         especially the fact that it is easy and fast.
+                        </p>
                     </div>
                     <div className="user">
                         <div className="userImg"> 

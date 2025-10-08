@@ -9,7 +9,7 @@ const Home = () => {
         <div className="intro">
         <h1>Purchase and Validate digital gift cards</h1>
         <div className="introDetails">
-          <p>Your No.1 stop for any gift card purchase and validation- swift response, 
+          <p>Your No.1 stop for anything gift card related including checking your gift card balance , gift card validation and purchasing of digital gift cards- swift response, 
           Top-notch security and trusted by over 5,000 users daily.</p>
         </div>
        
