@@ -107,10 +107,6 @@
         width: 100%;
         display: flex;
         justify-content: center;
-
-        @include responsiveness.small{
-            background-color: black;
-            padding: 20px;
-        }
+        padding: 20px;
     }
 }

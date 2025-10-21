@@ -30,10 +30,11 @@ const Copyrights = () => {
         </div>
         <div className='actions'>
           <h1>Actions</h1>
-          <Link to="#home">Home</Link>
-          <Link to="#about">About Us</Link>
-          <Link to="#buy">Buy/Validate Cards</Link>
-          <Link to="#faq">Contact Us</Link>
+          <Link to="/#home">Home</Link>
+          <Link to="/#about">About Us</Link>
+          <Link to="/#buy">Buy/Validate Cards</Link>
+          <Link to="/#faq">Contact Us</Link>
+          <Link to="/policy">Privacy Policy</Link>
 
 
         </div>
